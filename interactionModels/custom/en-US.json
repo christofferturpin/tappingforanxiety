@@ -1,0 +1,142 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "tapping for anxiety",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "CaptureStressLevelIntent",
+          "slots": [
+            {
+              "name": "stressNumSlot",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{stressNumSlot}"
+              ]
+            },
+            {
+              "name": "time",
+              "type": "sessionString",
+              "samples": [
+                "long",
+                "short"
+              ]
+            }
+          ],
+          "samples": [
+            " {stressNumSlot} and {time} "
+          ]
+        },
+        {
+          "name": "startSessionIntent",
+          "slots": [],
+          "samples": [
+            "sure",
+            "okay",
+            "yea",
+            "yes"
+          ]
+        },
+        {
+          "name": "NewStressLevelIntent",
+          "slots": [
+            {
+              "name": "newAnxietyLevel",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "My anxiety level is {newAnxietyLevel}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "short"
+              }
+            },
+            {
+              "name": {
+                "value": "long"
+              }
+            }
+          ],
+          "name": "sessionString"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CaptureStressLevelIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "stressNumSlot",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.329926827088.1586396991384"
+              }
+            },
+            {
+              "name": "time",
+              "type": "sessionString",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.56357177567.779712161257"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.329926827088.1586396991384",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is your stress level?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.56357177567.779712161257",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want a short or a long session?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "13"
+}
